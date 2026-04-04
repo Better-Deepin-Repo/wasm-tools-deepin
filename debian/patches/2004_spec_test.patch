@@ -1,0 +1,18 @@
+Description: skip missing spec tests
+Author: Jonas Smedegaard <dr@jones.dk>
+Forwarded: not-needed
+Last-Update: 2026-04-04
+---
+This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
+--- a/tests/cli.rs
++++ b/tests/cli.rs
+@@ -258,6 +258,9 @@
+     for f in path.read_dir().unwrap() {
+         let f = f.unwrap();
+         if f.file_type().unwrap().is_dir() {
++            if f.path().file_name().and_then(|s| s.to_str()) == Some("spec") {
++                continue;
++            }
+             find_tests(&f.path(), tests);
+             continue;
+         }

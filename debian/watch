@@ -1,0 +1,12 @@
+version: 5
+# check: uscan --report
+# update: gbp import-orig --upstream-vcs-tag=vX.Y.Z --uscan
+
+Template: Github
+Owner: bytecodealliance
+Project: wasm-tools
+Uversion-Mangle: auto
+Dversion-Mangle: auto
+Repacksuffix: +ds
+# limit to same version as rust-wasmprinter
+Matching-Pattern: https://api.github.com/repos/[^/]+/[^/]+/git/refs/tags/v(1\.239\.\d+)

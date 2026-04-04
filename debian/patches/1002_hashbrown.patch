@@ -1,0 +1,16 @@
+Description: accept newer minor version of crate hashbrown
+Author: Jonas Smedegaard <dr@jones.dk>
+Last-Update: 2026-04-04
+---
+This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -120,7 +120,7 @@
+ criterion = { version = "0.5.1", default-features = false }
+ env_logger = "0.11"
+ gimli = "0.31.1"
+-hashbrown = { version = "0.15.2", default-features = false, features = ['default-hasher'] }
++hashbrown = { version = ">= 0.15.2, <= 0.16", default-features = false, features = ['default-hasher'] }
+ id-arena = "2"
+ indexmap = { version = "2.7.0", default-features = false }
+ indoc = "2.0.5"

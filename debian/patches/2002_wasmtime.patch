@@ -1,0 +1,69 @@
+Description: avoid crate wasmtime to not create circular dependency
+Author: Jonas Smedegaard <dr@jones.dk>
+Forwarded: not-needed
+Last-Update: 2026-04-04
+---
+This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -135,7 +135,6 @@
+ spdx = ">= 0.10.1, <= 0.12"
+ termcolor = "1.2.0"
+ url = "2.0.0"
+-wasmtime = { version = "34.0.1", default-features = false, features = ['cranelift', 'component-model', 'runtime', 'gc-drc'] }
+ thiserror = "2.0.12"
+ 
+ wasm-compose = { version = "0.239.0", path = "crates/wasm-compose" }
+--- a/crates/fuzz-stats/Cargo.toml
++++ b/crates/fuzz-stats/Cargo.toml
+@@ -10,7 +10,6 @@
+ num_cpus = { workspace = true }
+ rand = { workspace = true }
+ wasm-smith = { workspace = true }
+-wasmtime = { workspace = true }
+ 
+ [lints]
+ workspace = true
+--- a/crates/wasm-mutate-stats/Cargo.toml
++++ b/crates/wasm-mutate-stats/Cargo.toml
+@@ -19,7 +19,6 @@
+ wasm-mutate = { workspace = true }
+ wasmparser = { workspace = true, features = ['std', 'validate'] }
+ wasmprinter = { workspace = true }
+-wasmtime = { workspace = true }
+ 
+ [lib]
+ doctest = false
+--- a/crates/wit-component/Cargo.toml
++++ b/crates/wit-component/Cargo.toml
+@@ -44,9 +44,6 @@
+ wat = { workspace = true, features = ['component-model'] }
+ wasm-metadata = { workspace = true, features = ['oci'] }
+ 
+-[target.'cfg(not(target_family = "wasm"))'.dev-dependencies]
+-wasmtime = { workspace = true }
+-
+ [features]
+ dummy-module = ['dep:wat']
+ wat = ['dep:wast', 'dep:wat']
+--- a/crates/wit-component/tests/linking.rs
++++ b/crates/wit-component/tests/linking.rs
+@@ -181,7 +181,7 @@
+         _ = component;
+     }
+ 
+-    #[cfg(not(target_family = "wasm"))]
++    #[cfg(feature = "wasmtime")]
+     {
+         use {
+             anyhow::anyhow,
+--- a/fuzz/Cargo.toml
++++ b/fuzz/Cargo.toml
+@@ -21,7 +21,6 @@
+ wasm-smith = { workspace = true, features = ['component-model', 'wasmparser'] }
+ wasmparser = { workspace = true, features = ['std', 'features'] }
+ wasmprinter = { workspace = true, features = ['component-model'] }
+-wasmtime = { workspace = true, optional = true }
+ wast = { workspace = true }
+ wat = { workspace = true }
+ wit-component = { workspace = true, features = ['dummy-module'] }

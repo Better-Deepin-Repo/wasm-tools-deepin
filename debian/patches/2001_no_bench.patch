@@ -1,0 +1,71 @@
+Description: avoid benches
+Author: Jonas Smedegaard <dr@jones.dk>
+Forwarded: not-needed
+Last-Update: 2026-04-04
+---
+This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -117,7 +117,6 @@
+ clap = { version = "4.0.0", features = ["derive"] }
+ clap_complete = "4.4.7"
+ comfy-table = { version = "7.1.3", default-features = false }
+-criterion = { version = "0.5.1", default-features = false }
+ env_logger = "0.11"
+ gimli = "0.31.1"
+ hashbrown = { version = ">= 0.15.2, <= 0.16", default-features = false, features = ['default-hasher'] }
+--- a/crates/wasm-smith/Cargo.toml
++++ b/crates/wasm-smith/Cargo.toml
+@@ -1,4 +1,5 @@
+ [package]
++auto-benches = false
+ authors = ["Nick Fitzgerald <fitzgen@gmail.com>"]
+ categories = ["command-line-utilities", "development-tools", "development-tools::testing", "wasm"]
+ description = "A WebAssembly test case generator"
+@@ -15,10 +16,6 @@
+ [package.metadata.docs.rs]
+ all-features = true
+ 
+-[[bench]]
+-name = "corpus"
+-harness = false
+-
+ [lints]
+ workspace = true
+ 
+@@ -34,7 +31,6 @@
+ wat = { workspace = true, optional = true }
+ 
+ [dev-dependencies]
+-criterion = { workspace = true }
+ rand = { workspace = true }
+ wasmparser = { workspace = true, features = ['std', 'validate', 'features', 'simd'] }
+ wasmprinter = { workspace = true }
+--- a/crates/wasmparser/Cargo.toml
++++ b/crates/wasmparser/Cargo.toml
+@@ -1,4 +1,5 @@
+ [package]
++auto-benches = false
+ name = "wasmparser"
+ version.workspace = true
+ authors = ["Yury Delendik <ydelendik@mozilla.com>"]
+@@ -28,19 +29,13 @@
+ 
+ [dev-dependencies]
+ anyhow = { workspace = true }
+-criterion = { workspace = true }
+ env_logger.workspace = true
+ log.workspace = true
+-once_cell = "1.13.0"
+ rayon = { workspace = true }
+ wasm-encoder = { path = "../wasm-encoder" }
+ wast = { path = "../wast" }
+ wat = { path = "../wat" }
+ 
+-[[bench]]
+-name = "benchmark"
+-harness = false
+-
+ [features]
+ default = ['std', 'validate', 'serde', 'features', 'component-model', 'hash-collections', 'simd']
+ 

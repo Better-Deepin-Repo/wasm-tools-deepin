@@ -1,0 +1,6 @@
+wasm-tools (1.239.0+ds-1) experimental; urgency=medium
+
+  * initial packaging release;
+    closes: bug#1132675
+
+ -- Jonas Smedegaard <dr@jones.dk>  Sat, 04 Apr 2026 20:51:42 +0200

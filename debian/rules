@@ -1,0 +1,76 @@
+#!/usr/bin/make -f
+
+# resolve DEB_VERSION_UPSTREAM DEB_VERSION_UPSTREAM_REVISION
+include /usr/share/dpkg/pkg-info.mk
+
+# generate documentation unless nodoc requested
+ifeq (,$(filter nodoc,$(DEB_BUILD_OPTIONS)))
+DOCS = README.html README.txt
+endif
+
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+export DEB_CFLAGS_MAINT_APPEND  = -Wall -pedantic
+export DEB_CXXFLAGS_MAINT_APPEND  = -Wall -pedantic
+
+# trust upstream optimization level unless explicitly disabled
+ifeq (,$(filter noopt,$(DEB_BUILD_OPTIONS)))
+export DEB_CFLAGS_MAINT_STRIP=-O2
+export DEB_CXXFLAGS_MAINT_STRIP=-O2
+endif
+
+# generate documentation unless nodoc requested
+ifeq (,$(filter nodoc,$(DEB_BUILD_OPTIONS)))
+MANPAGES = $(cmd).1
+endif
+
+# generate manual pages from output of clap-based Rust binary
+#  arguments: 1:MANFILEPATH 2:COMMANDPATH 3:SUBCOMMAND(S)
+_help2man = \
+ $(eval suffix = $(lastword $(subst ., ,$(1))))\
+ $(eval stem = $(patsubst %.$(suffix),%,$(1)))\
+ help2man --section $(suffix) --no-info \
+ --version-string='$(DEB_VERSION_UPSTREAM)' \
+ --name $(shell $(2) $(3) --help | head --lines=1 | xargs -0 shell-quote --) \
+ --output '$(stem)$(if $(3),-$(subst $() ,-,$(strip $(3)))).$(suffix)' \
+ '$(2)$(if $(3), $(3))' \
+ || { $(2) $(3) --help; false; }
+
+mainpkg = wasm-tools
+cmd = wasm-tools
+subcmds_$(cmd) = \
+ parse validate print smith shrink mutate dump objdump strip compose \
+ demangle component metadata wit-smith addr2line json-from-wast wast
+
+%:
+	dh $@
+
+%.html: %.md
+	cmark-gfm $< > $@
+
+%.txt: %.md
+	cmark-gfm --to plaintext $< > $@
+
+execute_after_dh_auto_build: $(DOCS)
+
+execute_after_dh_auto_install-arch: debian/$(mainpkg)/usr/bin/$(cmd) $(MANPAGES)
+	mkdir --parents debian/build
+	$< completion bash > debian/build/bash-completion
+	$< completion zsh > debian/build/_$(cmd)
+
+# avoid cleaning unless source is patched
+override_dh_auto_clean:
+	grep -q playground Cargo.toml || dh_auto_clean --buildsystem rust
+
+override_dh_installdocs:
+	dh_installdocs -- $(DOCS)
+
+override_dh_gencontrol:
+	dh_gencontrol -plibrust-wasm-tools-dev -- \
+	 -V'rust:Version:zero-based=$(patsubst 1.%,0.%,$(DEB_VERSION_UPSTREAM))+$(DEB_VERSION_UPSTREAM_REVISION)'
+	dh_gencontrol --remaining-packages
+
+# build manpages
+$(cmd).1: %.1: debian/$(mainpkg)/usr/bin/%
+	$(call _help2man,$@,$<)
+	set -e; $(foreach x,$(subcmds_$(cmd)),\
+	 $(call _help2man,$@,$<,$x);)

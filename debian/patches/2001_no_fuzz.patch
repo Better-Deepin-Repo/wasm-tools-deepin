@@ -1,0 +1,41 @@
+Description: avoid fuzzing
+Author: Jonas Smedegaard <dr@jones.dk>
+Forwarded: not-needed
+Last-Update: 2026-04-04
+---
+This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -34,12 +34,9 @@
+ [workspace]
+ members = [
+   'crates/c-api',
+-  'crates/fuzz-stats',
+   'crates/wasm-mutate-stats',
+   'crates/wasm-wave',
+-  'fuzz',
+   'crates/wit-encoder',
+-  'crates/wit-parser/fuzz',
+   'crates/wit-component/dl',
+   'playground/component',
+ ]
+@@ -124,7 +121,6 @@
+ indexmap = { version = "2.7.0", default-features = false }
+ indoc = "2.0.5"
+ leb128fmt = { version = "0.1.0", default-features = false }
+-libfuzzer-sys = "0.4.0"
+ libtest-mimic = "0.8.1"
+ log = "0.4.17"
+ num_cpus = "1.13"
+--- a/crates/wasm-smith/Cargo.toml
++++ b/crates/wasm-smith/Cargo.toml
+@@ -36,9 +36,6 @@
+ wasmprinter = { workspace = true }
+ wat = { workspace = true }
+ 
+-[target.'cfg(not(target_family = "wasm"))'.dev-dependencies]
+-libfuzzer-sys = { workspace = true }
+-
+ [features]
+ _internal_cli = ["clap", "serde", "dep:wasmparser", "dep:wat"]
+ wasmparser = ['dep:wasmparser', 'wasm-encoder/wasmparser']

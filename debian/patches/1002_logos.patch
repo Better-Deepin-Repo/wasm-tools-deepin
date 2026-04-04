@@ -1,0 +1,16 @@
+Description: accept newer minor version of crate logos
+Author: Jonas Smedegaard <dr@jones.dk>
+Last-Update: 2026-04-04
+---
+This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
+--- a/crates/wasm-wave/Cargo.toml
++++ b/crates/wasm-wave/Cargo.toml
+@@ -20,7 +20,7 @@
+ 
+ [dependencies]
+ indexmap = { workspace = true, features = ["std"] }
+-logos = { version = "0.14.2", features = ["forbid_unsafe"] }
++logos = { version = ">= 0.14.2, <= 0.15", features = ["forbid_unsafe"] }
+ thiserror = { workspace = true }
+ wit-parser = { workspace = true, optional = true }
+ 

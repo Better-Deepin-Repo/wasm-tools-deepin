@@ -1,0 +1,20 @@
+Description: limit workspace
+Author: Jonas Smedegaard <dr@jones.dk>
+Forwarded: not-needed
+Last-Update: 2026-04-04
+---
+This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -34,11 +34,9 @@
+ [workspace]
+ members = [
+   'crates/c-api',
+-  'crates/wasm-mutate-stats',
+   'crates/wasm-wave',
+   'crates/wit-encoder',
+   'crates/wit-component/dl',
+-  'playground/component',
+ ]
+ 
+ [workspace.lints.rust]

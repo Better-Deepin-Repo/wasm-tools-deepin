@@ -1,0 +1,191 @@
+Description: use newer minor version of crate rand
+Author: Jonas Smedegaard <dr@jones.dk>
+Last-Update: 2026-04-04
+---
+This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -130,7 +130,7 @@
+ log = "0.4.17"
+ num_cpus = "1.13"
+ pretty_assertions = "1.3.0"
+-rand = { version = "0.9.1", features = ["small_rng"] }
++rand = "0.10"
+ rayon = "1.3"
+ semver = { version = "1.0.0", default-features = false }
+ serde = { version = "1.0.166", default-features = false, features = ['alloc'] }
+--- a/crates/wasm-mutate/src/lib.rs
++++ b/crates/wasm-mutate/src/lib.rs
+@@ -27,7 +27,7 @@
+ };
+ use info::ModuleInfo;
+ use mutators::Mutator;
+-use rand::{Rng, SeedableRng, rngs::SmallRng};
++use rand::{RngExt, SeedableRng, rngs::SmallRng};
+ use std::sync::Arc;
+ 
+ #[cfg(feature = "clap")]
+--- a/crates/wasm-mutate/src/mutators/add_function.rs
++++ b/crates/wasm-mutate/src/mutators/add_function.rs
+@@ -3,7 +3,7 @@
+ use super::Mutator;
+ use crate::module::{PrimitiveTypeInfo, TypeInfo};
+ use crate::{Result, WasmMutate};
+-use rand::Rng;
++use rand::RngExt;
+ use wasm_encoder::{AbstractHeapType, HeapType, Module};
+ 
+ /// Mutator that adds new, empty functions to a Wasm module.
+--- a/crates/wasm-mutate/src/mutators/add_type.rs
++++ b/crates/wasm-mutate/src/mutators/add_type.rs
+@@ -3,7 +3,7 @@
+ use super::Mutator;
+ use crate::Result;
+ use crate::module::map_type;
+-use rand::Rng;
++use rand::{Rng, RngExt};
+ use std::iter;
+ 
+ /// A mutator that appends a new type to the type section.
+--- a/crates/wasm-mutate/src/mutators/function_body_unreachable.rs
++++ b/crates/wasm-mutate/src/mutators/function_body_unreachable.rs
+@@ -2,7 +2,7 @@
+ 
+ use crate::{Result, WasmMutate};
+ 
+-use rand::Rng;
++use rand::RngExt;
+ use wasm_encoder::{CodeSection, Function, Module};
+ use wasmparser::CodeSectionReader;
+ 
+--- a/crates/wasm-mutate/src/mutators/modify_const_exprs.rs
++++ b/crates/wasm-mutate/src/mutators/modify_const_exprs.rs
+@@ -2,7 +2,7 @@
+ //! entities which require constant initializers.
+ 
+ use crate::{Error, Mutator, ReencodeResult};
+-use rand::Rng;
++use rand::RngExt;
+ use wasm_encoder::reencode::{self, Reencode, RoundtripReencoder};
+ use wasm_encoder::{ElementSection, GlobalSection};
+ use wasmparser::{ConstExpr, ElementSectionReader, GlobalSectionReader};
+--- a/crates/wasm-mutate/src/mutators/modify_data.rs
++++ b/crates/wasm-mutate/src/mutators/modify_data.rs
+@@ -1,6 +1,6 @@
+ use super::Mutator;
+ use crate::{Result, WasmMutate};
+-use rand::Rng;
++use rand::RngExt;
+ use wasm_encoder::reencode::{Reencode, RoundtripReencoder};
+ use wasm_encoder::{DataSection, Module};
+ use wasmparser::{DataKind, DataSectionReader};
+--- a/crates/wasm-mutate/src/mutators/peephole.rs
++++ b/crates/wasm-mutate/src/mutators/peephole.rs
+@@ -39,7 +39,7 @@
+     module::{PrimitiveTypeInfo, map_type},
+ };
+ use egg::{Rewrite, Runner};
+-use rand::Rng;
++use rand::RngExt;
+ use wasm_encoder::reencode::{Reencode, RoundtripReencoder};
+ use wasm_encoder::{CodeSection, ConstExpr, Function, GlobalSection, Module, ValType};
+ use wasmparser::{CodeSectionReader, FunctionBody, GlobalSectionReader, LocalsReader};
+--- a/crates/wasm-mutate/src/mutators/peephole/eggsy/encoder/expr2wasm.rs
++++ b/crates/wasm-mutate/src/mutators/peephole/eggsy/encoder/expr2wasm.rs
+@@ -6,7 +6,7 @@
+     mutators::peephole::{EG, Lang, MemArg, eggsy::encoder::TraversalEvent},
+ };
+ use egg::{Id, Language, RecExpr};
+-use rand::Rng;
++use rand::RngExt;
+ use std::num::Wrapping;
+ use wasm_encoder::Function;
+ 
+--- a/crates/wasm-mutate/src/mutators/peephole/eggsy/expr_enumerator.rs
++++ b/crates/wasm-mutate/src/mutators/peephole/eggsy/expr_enumerator.rs
+@@ -9,7 +9,7 @@
+     eggsy::{RandomExtractor, encoder::rebuild::build_expr_inner},
+ };
+ use egg::{AstSize, Id, Language, RecExpr};
+-use rand::{Rng, SeedableRng, prelude::SmallRng};
++use rand::{RngExt, SeedableRng, prelude::SmallRng};
+ use std::{cell::RefCell, rc::Rc};
+ 
+ /// Returns a lazy iterator over all possible expressions that can be
+--- a/crates/wasm-mutate/src/mutators/remove_item.rs
++++ b/crates/wasm-mutate/src/mutators/remove_item.rs
+@@ -10,7 +10,7 @@
+ use crate::mutators::{Item, Mutator};
+ use crate::{Error, ReencodeResult};
+ use crate::{ModuleInfo, Result, WasmMutate};
+-use rand::Rng;
++use rand::RngExt;
+ use std::collections::HashSet;
+ use wasm_encoder::reencode::Reencode;
+ use wasm_encoder::*;
+--- a/crates/wasm-mutate/src/mutators/rename_export.rs
++++ b/crates/wasm-mutate/src/mutators/rename_export.rs
+@@ -1,7 +1,7 @@
+ //! Mutator that generates a random renaming of a preexisting export
+ use super::Mutator;
+ use crate::{Result, WasmMutate};
+-use rand::Rng;
++use rand::RngExt;
+ use wasm_encoder::{ExportKind, ExportSection, Module};
+ use wasmparser::ExportSectionReader;
+ 
+--- a/crates/wasm-mutate/src/mutators/snip_function.rs
++++ b/crates/wasm-mutate/src/mutators/snip_function.rs
+@@ -3,7 +3,7 @@
+ use super::Mutator;
+ use crate::module::{PrimitiveTypeInfo, TypeInfo};
+ use crate::{Result, WasmMutate};
+-use rand::Rng;
++use rand::RngExt;
+ use wasm_encoder::{CodeSection, Function, HeapType, Module};
+ use wasmparser::CodeSectionReader;
+ 
+--- a/crates/wasm-mutate/src/mutators/remove_export.rs
++++ b/crates/wasm-mutate/src/mutators/remove_export.rs
+@@ -2,7 +2,7 @@
+ 
+ use super::Mutator;
+ use crate::{Result, WasmMutate};
+-use rand::Rng;
++use rand::RngExt;
+ use wasm_encoder::{ExportKind, ExportSection, Module};
+ use wasmparser::ExportSectionReader;
+ 
+--- a/crates/wasm-mutate/src/mutators/custom.rs
++++ b/crates/wasm-mutate/src/mutators/custom.rs
+@@ -3,7 +3,7 @@
+ use std::borrow::Cow;
+ 
+ use super::Mutator;
+-use rand::{Rng, prelude::*};
++use rand::prelude::*;
+ 
+ #[derive(Clone, Copy)]
+ pub struct CustomSectionMutator;
+--- a/crates/wasm-shrink/src/lib.rs
++++ b/crates/wasm-shrink/src/lib.rs
+@@ -4,7 +4,7 @@
+ //! See the [`WasmShrink`] type for details.
+ 
+ use anyhow::{Context, Result};
+-use rand::{Rng, SeedableRng, rngs::SmallRng};
++use rand::{RngExt, SeedableRng, rngs::SmallRng};
+ use std::collections::HashSet;
+ use wasm_mutate::WasmMutate;
+ use wasmparser::WasmFeatures;
+--- a/crates/wasm-mutate/src/mutators/codemotion.rs
++++ b/crates/wasm-mutate/src/mutators/codemotion.rs
+@@ -31,7 +31,7 @@
+         },
+     },
+ };
+-use rand::{Rng, prelude::*};
++use rand::prelude::*;
+ use wasm_encoder::{CodeSection, Function, Module, ValType};
+ use wasmparser::{CodeSectionReader, FunctionBody};
+ 

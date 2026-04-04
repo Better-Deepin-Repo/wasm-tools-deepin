@@ -1,0 +1,13 @@
+1002_auditable-serde.patch
+1002_hashbrown.patch
+1002_heck.patch
+1002_logos.patch
+1002_rand.patch
+1002_spdx.patch
+2001_no_bench.patch
+2001_no_fuzz.patch
+2002_bytesize.patch
+2002_libtest-mimic.patch
+2002_wasmtime.patch
+2003_workspace.patch
+2004_spec_test.patch

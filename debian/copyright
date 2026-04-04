@@ -1,0 +1,171 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: wasm-tools
+Upstream-Contact: https://github.com/bytecodealliance/wasm-tools/issues
+Source: https://github.com/bytecodealliance/wasm-tools
+ .
+ Repackaged, excluding any .git* files
+ or precompiled code
+Files-Excluded:
+ */.git*
+ crates/wasmparser/benches/*.wasm
+
+Files: *
+Copyright:
+  2017-2020, 2024  Mozilla Foundation
+                   The Wasmtime Project Developers
+License-Grant:
+This project is triple licenced
+ under the Apache 2/ Apache 2 with LLVM exceptions/ MIT licences.
+License: Apache-2.0 or Apache-2.0 with LLVM exception or Expat
+ As an exception,
+ if, as a result of your compiling your source code,
+ portions of this Software are embedded
+ into an Object form of such source code,
+ you may redistribute such embedded portions in such Object form
+ without complying with the conditions of Sections 4(a), 4(b) and 4(d)
+ of the License.
+ .
+ In addition,
+ if you combine or link compiled forms of this Software
+ with software that is licensed under the GPLv2 ("Combined Software")
+ and if a court of competent jurisdiction determines
+ that the patent provision (Section 3),
+ the indemnity provision (Section 9)
+ or other Section of the License
+ conflicts with the conditions of the GPLv2,
+ you may retroactively and prospectively choose to deem waived
+ or otherwise exclude such Section(s) of the License,
+ but only in their entirety
+ and only with respect to the Combined Software.
+Reference:
+ Cargo.toml
+ LICENSE-APACHE
+ LICENSE-Apache-2.0_WITH_LLVM-exception
+ LICENSE-MIT
+ README.md
+ crates/*/README.md
+
+Files:
+ tests/cli/folding/fold-atomic-fence.wast
+ tests/cli/folding/fold-atomic.wast
+ tests/cli/folding/fold-basic.wast
+ tests/cli/folding/fold-block-labels.wast
+ tests/cli/folding/fold-block.wast
+ tests/cli/folding/fold-bulk-memory.wast
+ tests/cli/folding/fold-call-import-gen-names.wast
+ tests/cli/folding/fold-call.wast
+ tests/cli/folding/fold-fac.wast
+ tests/cli/folding/fold-global-getset.wast
+ tests/cli/folding/fold-load-store.wast
+ tests/cli/folding/fold-load-store64.wast
+ tests/cli/folding/fold-local-getset.wast
+ tests/cli/folding/fold-multi.wast
+ tests/cli/folding/fold-nop.wast
+ tests/cli/folding/fold-reference-types.wast
+ tests/cli/folding/fold-simd.wast
+ tests/cli/folding/fold-tail-call.wast
+ tests/cli/folding/fold-throw.wast
+ tests/cli/folding/fold-unreachable.wast
+Copyright:
+  2016  WebAssembly Community Group participants
+License: Apache-2.0
+Reference:
+ https://github.com/WebAssembly/wabt/blob/main/LICENSE
+Comment:
+ Source contains no license statements.
+ License assumed from vague hints
+ that source originated from project wabt,
+ and that general license for wabt applies to its test files.
+
+Files:
+ debian/*
+Copyright:
+  2026  Jonas Smedegaard <dr@jones.dk>
+License-Grant:
+ This packaging is free software:
+ you can redistribute it and/or modify it
+ under the terms of the GNU General Public License
+ as published by the Free Software Foundation,
+ either version 3,
+ or (at your option) any later version.
+License: GPL-3+
+Reference: debian/copyright
+
+Files:
+ debian/copyright-check
+Copyright:
+  2020-2023  Jonas Smedegaard <dr@jones.dk>
+  2020-2021  Purism, SPC
+License: GPL-3+
+
+Files:
+ debian/patches/*
+Copyright:
+  Jonas Smedegaard <dr@jones.dk>
+License: Apache-2.0 or Apache-2.0 with LLVM exception or Expat
+ As an exception,
+ if, as a result of your compiling your source code,
+ portions of this Software are embedded
+ into an Object form of such source code,
+ you may redistribute such embedded portions in such Object form
+ without complying with the conditions of Sections 4(a), 4(b) and 4(d)
+ of the License.
+ .
+ In addition,
+ if you combine or link compiled forms of this Software
+ with software that is licensed under the GPLv2 ("Combined Software")
+ and if a court of competent jurisdiction determines
+ that the patent provision (Section 3),
+ the indemnity provision (Section 9)
+ or other Section of the License
+ conflicts with the conditions of the GPLv2,
+ you may retroactively and prospectively choose to deem waived
+ or otherwise exclude such Section(s) of the License,
+ but only in their entirety
+ and only with respect to the Combined Software.
+Reference:
+ Cargo.toml
+ LICENSE-APACHE
+ LICENSE-Apache-2.0_WITH_LLVM-exception
+ LICENSE-MIT
+ README.md
+ crates/*/README.md
+Comment:
+ Patches commonly lack explicit copyright and license.
+ For the cases where patches are copyrightable at all,
+ copyright is assumed to be held by the author,
+ and license is assumed to be the same as main upstream license.
+
+License: Apache-2.0
+Reference: /usr/share/common-licenses/Apache-2.0
+
+License: Expat
+ Permission is hereby granted, free of charge,
+ to any person obtaining a copy
+ of this software and associated documentation files
+ (the "Software"),
+ to deal in the Software without restriction,
+ including without limitation
+ the rights to use, copy, modify, merge, publish, distribute,
+ sublicense, and/or sell copies of the Software,
+ and to permit persons to whom the Software is furnished to do so,
+ subject to the following conditions:
+ .
+ The above copyright notice and this permission notice
+ shall be included in all copies or substantial portions
+ of the Software.
+ .
+ THE SOFTWARE IS PROVIDED "AS IS",
+ WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+ INCLUDING BUT NOT LIMITED
+ TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE
+ AND NONINFRINGEMENT.
+ IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE
+ FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+ ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE
+ OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+License: GPL-3+
+Reference: /usr/share/common-licenses/GPL-3
