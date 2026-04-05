@@ -18,7 +18,7 @@ This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
 +++ b/crates/wasm-smith/Cargo.toml
 @@ -1,4 +1,5 @@
  [package]
-+auto-benches = false
++autobenches = false
  authors = ["Nick Fitzgerald <fitzgen@gmail.com>"]
  categories = ["command-line-utilities", "development-tools", "development-tools::testing", "wasm"]
  description = "A WebAssembly test case generator"
@@ -45,7 +45,7 @@ This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
 +++ b/crates/wasmparser/Cargo.toml
 @@ -1,4 +1,5 @@
  [package]
-+auto-benches = false
++autobenches = false
  name = "wasmparser"
  version.workspace = true
  authors = ["Yury Delendik <ydelendik@mozilla.com>"]
