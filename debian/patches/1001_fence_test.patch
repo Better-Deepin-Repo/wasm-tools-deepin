@@ -1,0 +1,21 @@
+Description: feature-fence tests
+Author: Jonas Smedegaard <dr@jones.dk>
+Last-Update: 2026-04-05
+---
+This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
+--- a/crates/wasm-metadata/tests/component.rs
++++ b/crates/wasm-metadata/tests/component.rs
+@@ -1,3 +1,5 @@
++#![cfg(feature = "oci")]
++
+ use std::{str::FromStr, vec};
+ 
+ use auditable_serde::VersionInfo;
+--- a/crates/wasm-metadata/tests/module.rs
++++ b/crates/wasm-metadata/tests/module.rs
+@@ -1,3 +1,5 @@
++#![cfg(feature = "oci")]
++
+ use std::{str::FromStr, vec};
+ 
+ use auditable_serde::VersionInfo;
