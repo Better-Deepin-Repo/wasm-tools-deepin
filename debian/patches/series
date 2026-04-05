@@ -1,4 +1,5 @@
 1002_auditable-serde.patch
+1002_egg.patch
 1002_hashbrown.patch
 1002_heck.patch
 1002_logos.patch
