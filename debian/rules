@@ -18,11 +18,6 @@ export DEB_CFLAGS_MAINT_STRIP=-O2
 export DEB_CXXFLAGS_MAINT_STRIP=-O2
 endif
 
-# generate documentation unless nodoc requested
-ifeq (,$(filter nodoc,$(DEB_BUILD_OPTIONS)))
-MANPAGES = $(cmd).1
-endif
-
 # generate manual pages from output of clap-based Rust binary
 #  arguments: 1:MANFILEPATH 2:COMMANDPATH 3:SUBCOMMAND(S)
 _help2man = \
@@ -40,6 +35,11 @@ cmd = wasm-tools
 subcmds_$(cmd) = \
  parse validate print smith shrink mutate dump objdump strip compose \
  demangle component metadata wit-smith addr2line json-from-wast wast
+
+# generate documentation unless nodoc requested
+ifeq (,$(filter nodoc,$(DEB_BUILD_OPTIONS)))
+MANPAGES = $(cmd).1
+endif
 
 %:
 	dh $@
