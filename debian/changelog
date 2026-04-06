@@ -1,3 +1,15 @@
+wasm-tools (1.239.0+ds-3) unstable; urgency=medium
+
+  * extend patch 1001_fence_test
+  * add patch 1001_broken_test to fix broken tests
+  * depend (not only build-depend) on package for crate bytesize
+  * provide virtual package for wit-encoder feature serde
+    (not bogus serde-check)
+  * provide major-versioned (not minor-versioned) virtual packages
+    for crate wasm-tools
+
+ -- Jonas Smedegaard <dr@jones.dk>  Mon, 06 Apr 2026 09:49:18 +0200
+
 wasm-tools (1.239.0+ds-2) unstable; urgency=medium
 
   * fix patch 2001_no-bench
