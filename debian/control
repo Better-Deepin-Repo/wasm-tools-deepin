@@ -75,6 +75,7 @@ Depends:
  librust-auditable-serde-dev,
  librust-bitflags-dev,
  librust-blake3-dev,
+ librust-bytesize-dev,
  librust-clap-dev,
  librust-egg-dev,
  librust-flagset-dev,
