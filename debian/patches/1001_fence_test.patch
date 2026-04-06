@@ -19,3 +19,39 @@ This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
  use std::{str::FromStr, vec};
  
  use auditable_serde::VersionInfo;
+--- a/crates/wasm-metadata/src/producers.rs
++++ b/crates/wasm-metadata/src/producers.rs
+@@ -170,6 +170,7 @@
+ }
+ 
+ #[cfg(test)]
++#[cfg(feature = "oci")]
+ mod test {
+     use super::*;
+     use crate::{Metadata, Payload};
+--- a/crates/wasm-wave/tests/ui.rs
++++ b/crates/wasm-wave/tests/ui.rs
+@@ -1,3 +1,5 @@
++#![cfg(feature = "wit")]
++
+ use anyhow::{Context, Result};
+ use std::{collections::HashMap, fmt::Write, fs, path::Path, sync::OnceLock};
+ 
+--- a/crates/wit-component/tests/linking.rs
++++ b/crates/wit-component/tests/linking.rs
+@@ -249,6 +249,7 @@
+ "#;
+ 
+ #[test]
++#[cfg(feature = "wasmtime")]
+ fn linking_got_weak() -> Result<()> {
+     let component = [
+         ("libfoo.so", GOT_IMPORT, Some(GOT_IMPORT_WIT)),
+--- a/crates/wit-encoder/tests/parse-to-encoder.rs
++++ b/crates/wit-encoder/tests/parse-to-encoder.rs
+@@ -1,3 +1,5 @@
++#![cfg(feature = "from-parser")]
++
+ use pretty_assertions::assert_eq;
+ use wit_encoder::packages_from_parsed;
+ 
