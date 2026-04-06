@@ -172,7 +172,7 @@ Provides:
  librust-wit-component-dev (= ${rust:Version:zero-based}),
  librust-wit-encoder-0.239+default-dev (= ${rust:Version:zero-based}),
  librust-wit-encoder-0.239+from-parser-dev (= ${rust:Version:zero-based}),
- librust-wit-encoder-0.239+serde-check-dev (= ${rust:Version:zero-based}),
+ librust-wit-encoder-0.239+serde-dev (= ${rust:Version:zero-based}),
  librust-wit-encoder-0.239-dev (= ${rust:Version:zero-based}),
  librust-wit-encoder-0.239.0-dev (= ${rust:Version:zero-based}),
  librust-wit-encoder-dev (= ${rust:Version:zero-based}),
