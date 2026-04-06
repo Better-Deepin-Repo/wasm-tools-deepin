@@ -1,6 +1,6 @@
 #!/usr/bin/make -f
 
-# resolve DEB_VERSION_UPSTREAM DEB_VERSION_UPSTREAM_REVISION
+# resolve DEB_VERSION DEB_VERSION_UPSTREAM
 include /usr/share/dpkg/pkg-info.mk
 
 # generate documentation unless nodoc requested
@@ -66,7 +66,7 @@ override_dh_installdocs:
 
 override_dh_gencontrol:
 	dh_gencontrol -plibrust-wasm-tools-dev -- \
-	 -V'rust:Version:zero-based=$(patsubst 1.%,0.%,$(DEB_VERSION_UPSTREAM))+$(DEB_VERSION_UPSTREAM_REVISION)'
+	 -V'rust:Version:zero-based=$(patsubst 1.%,0.%,$(DEB_VERSION))'
 	dh_gencontrol --remaining-packages
 
 # build manpages
