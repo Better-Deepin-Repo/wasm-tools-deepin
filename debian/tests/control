@@ -120,7 +120,6 @@ Features:
  test-name=rust-wasm-mutate:@,
 Depends:
  dh-rust,
- librust-env-logger-dev,
  librust-wasm-mutate-dev,
  librust-wasmprinter-dev,
 Restrictions:
@@ -132,7 +131,6 @@ Features:
  test-name=rust-wasm-mutate:,
 Depends:
  dh-rust,
- librust-env-logger-dev,
  librust-wasm-mutate-dev,
  librust-wasmprinter-dev,
 Restrictions:
@@ -144,7 +142,6 @@ Features:
  test-name=rust-wasm-mutate:default,
 Depends:
  dh-rust,
- librust-env-logger-dev,
  librust-wasm-mutate-0.239+default-dev,
  librust-wasmprinter-dev,
 Restrictions:
@@ -156,7 +153,6 @@ Features:
  test-name=rust-wasm-shrink:@,
 Depends:
  dh-rust,
- librust-env-logger-dev,
  librust-wasm-shrink-dev,
  librust-wasmprinter-dev,
 Restrictions:
@@ -168,7 +164,6 @@ Features:
  test-name=rust-wasm-shrink:,
 Depends:
  dh-rust,
- librust-env-logger-dev,
  librust-wasm-shrink-dev,
  librust-wasmprinter-dev,
 Restrictions:
@@ -180,7 +175,6 @@ Features:
  test-name=rust-wasm-shrink:default,
 Depends:
  dh-rust,
- librust-env-logger-dev,
  librust-wasm-shrink-0.239+default-dev,
  librust-wasmprinter-dev,
 Restrictions:
@@ -529,7 +523,6 @@ Features:
  test-name=rust-wit-component:@,
 Depends:
  dh-rust,
- librust-env-logger-dev,
  librust-glob-dev,
  librust-libtest-mimic-dev,
  librust-wasmprinter-dev,
@@ -543,7 +536,6 @@ Features:
  test-name=rust-wit-component:,
 Depends:
  dh-rust,
- librust-env-logger-dev,
  librust-glob-dev,
  librust-libtest-mimic-dev,
  librust-wasmprinter-dev,
@@ -557,7 +549,6 @@ Features:
  test-name=rust-wit-component:default,
 Depends:
  dh-rust,
- librust-env-logger-dev,
  librust-glob-dev,
  librust-libtest-mimic-dev,
  librust-wasmprinter-dev,
@@ -571,7 +562,6 @@ Features:
  test-name=rust-wit-component:dummy-module,
 Depends:
  dh-rust,
- librust-env-logger-dev,
  librust-glob-dev,
  librust-libtest-mimic-dev,
  librust-wasmprinter-dev,
@@ -585,7 +575,6 @@ Features:
  test-name=rust-wit-component:semver-check,
 Depends:
  dh-rust,
- librust-env-logger-dev,
  librust-glob-dev,
  librust-libtest-mimic-dev,
  librust-wasmprinter-dev,
@@ -599,7 +588,6 @@ Features:
  test-name=rust-wit-component:wat,
 Depends:
  dh-rust,
- librust-env-logger-dev,
  librust-glob-dev,
  librust-libtest-mimic-dev,
  librust-wasmprinter-dev,
@@ -668,7 +656,6 @@ Features:
  test-name=rust-wit-parser:@,
 Depends:
  dh-rust,
- librust-env-logger-dev,
  librust-libtest-mimic-dev,
  librust-wit-parser-dev,
 Restrictions:
@@ -680,7 +667,6 @@ Features:
  test-name=rust-wit-parser:,
 Depends:
  dh-rust,
- librust-env-logger-dev,
  librust-libtest-mimic-dev,
  librust-wit-parser-dev,
 Restrictions:
@@ -692,7 +678,6 @@ Features:
  test-name=rust-wit-parser:default,
 Depends:
  dh-rust,
- librust-env-logger-dev,
  librust-libtest-mimic-dev,
  librust-wit-parser-0.239+default-dev,
 Restrictions:
@@ -704,7 +689,6 @@ Features:
  test-name=rust-wit-parser:decoding,
 Depends:
  dh-rust,
- librust-env-logger-dev,
  librust-libtest-mimic-dev,
  librust-wit-parser-0.239+decoding-dev,
 Restrictions:
@@ -716,7 +700,6 @@ Features:
  test-name=rust-wit-parser:serde,
 Depends:
  dh-rust,
- librust-env-logger-dev,
  librust-libtest-mimic-dev,
  librust-wit-parser-0.239+serde-dev,
 Restrictions:
@@ -728,7 +711,6 @@ Features:
  test-name=rust-wit-parser:wat,
 Depends:
  dh-rust,
- librust-env-logger-dev,
  librust-libtest-mimic-dev,
  librust-wit-parser-0.239+wat-dev,
 Restrictions:
