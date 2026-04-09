@@ -673,16 +673,17 @@ Restrictions:
 #Restrictions:
 # allow-stderr,
 
-Test-Command: /usr/share/dh-rust/bin/cargo-auto-test wit-parser 0.239.0
- --all-targets
-Features:
- test-name=rust-wit-parser:default,
-Depends:
- dh-rust,
- librust-libtest-mimic-dev,
- librust-wit-parser-0.239+default-dev,
-Restrictions:
- allow-stderr,
+# always needs features "serde", "wat"
+#Test-Command: /usr/share/dh-rust/bin/cargo-auto-test wit-parser 0.239.0
+# --all-targets
+#Features:
+# test-name=rust-wit-parser:default,
+#Depends:
+# dh-rust,
+# librust-libtest-mimic-dev,
+# librust-wit-parser-0.239+default-dev,
+#Restrictions:
+# allow-stderr,
 
 # always needs features "serde", "wat"
 Test-Command: /usr/share/dh-rust/bin/cargo-auto-test wit-parser 0.239.0
