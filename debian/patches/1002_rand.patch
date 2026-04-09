@@ -189,3 +189,12 @@ This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
  use wasm_encoder::{CodeSection, Function, Module, ValType};
  use wasmparser::{CodeSectionReader, FunctionBody};
  
+--- a/crates/wasm-smith/tests/core.rs
++++ b/crates/wasm-smith/tests/core.rs
+@@ -1,5 +1,5 @@
+ use arbitrary::{Arbitrary, Unstructured};
+-use rand::{RngCore, SeedableRng, rngs::SmallRng};
++use rand::{Rng, RngCore, SeedableRng, rngs::SmallRng};
+ use wasm_smith::{Config, Module};
+ use wasmparser::{Validator, WasmFeatures};
+ 
