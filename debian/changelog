@@ -1,3 +1,15 @@
+wasm-tools (1.239.0+ds-4) unstable; urgency=medium
+
+  * simplify version mangling of virtual packages
+  * depend (not only build-depend) on packages
+    for crates clap_complete comfy-table cpp-demangle
+    env_logger rayon regex rustc-demangle
+  * extend patch 1001_fence_test
+  * fix patch 1002_rand
+  * fix autopkgtests for wit-parser
+
+ -- Jonas Smedegaard <dr@jones.dk>  Thu, 09 Apr 2026 08:20:46 +0200
+
 wasm-tools (1.239.0+ds-3) unstable; urgency=medium
 
   * extend patch 1001_fence_test
