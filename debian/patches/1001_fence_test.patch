@@ -55,3 +55,11 @@ This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
  use pretty_assertions::assert_eq;
  use wit_encoder::packages_from_parsed;
  
+--- a/crates/wit-encoder/tests/deps.rs
++++ b/crates/wit-encoder/tests/deps.rs
+@@ -1,3 +1,5 @@
++#![cfg(feature = "from-parser")]
++
+ use anyhow::Result;
+ use pretty_assertions::assert_eq;
+ use wit_encoder::{Package, packages_from_parsed};
