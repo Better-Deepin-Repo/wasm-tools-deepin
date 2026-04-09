@@ -661,16 +661,17 @@ Depends:
 Restrictions:
  allow-stderr,
 
-Test-Command: /usr/share/dh-rust/bin/cargo-auto-test wit-parser 0.239.0
- --all-targets --no-default-features
-Features:
- test-name=rust-wit-parser:,
-Depends:
- dh-rust,
- librust-libtest-mimic-dev,
- librust-wit-parser-dev,
-Restrictions:
- allow-stderr,
+# always needs features "serde", "wat"
+#Test-Command: /usr/share/dh-rust/bin/cargo-auto-test wit-parser 0.239.0
+# --all-targets --no-default-features
+#Features:
+# test-name=rust-wit-parser:,
+#Depends:
+# dh-rust,
+# librust-libtest-mimic-dev,
+# librust-wit-parser-dev,
+#Restrictions:
+# allow-stderr,
 
 Test-Command: /usr/share/dh-rust/bin/cargo-auto-test wit-parser 0.239.0
  --all-targets
@@ -683,35 +684,29 @@ Depends:
 Restrictions:
  allow-stderr,
 
+# always needs features "serde", "wat"
 Test-Command: /usr/share/dh-rust/bin/cargo-auto-test wit-parser 0.239.0
- --all-targets --no-default-features --features decoding
+ --all-targets --no-default-features --features decoding,serde,wat
 Features:
- test-name=rust-wit-parser:decoding,
+ test-name=rust-wit-parser:decoding+serde+wat,
 Depends:
  dh-rust,
  librust-libtest-mimic-dev,
  librust-wit-parser-0.239+decoding-dev,
+ librust-wit-parser-0.239+serde-dev,
+ librust-wit-parser-0.239+wat-dev,
 Restrictions:
  allow-stderr,
 
+# always needs features "serde", "wat"
 Test-Command: /usr/share/dh-rust/bin/cargo-auto-test wit-parser 0.239.0
- --all-targets --no-default-features --features serde
+ --all-targets --no-default-features --features serde,wat
 Features:
- test-name=rust-wit-parser:serde,
+ test-name=rust-wit-parser:serde+wat,
 Depends:
  dh-rust,
  librust-libtest-mimic-dev,
  librust-wit-parser-0.239+serde-dev,
-Restrictions:
- allow-stderr,
-
-Test-Command: /usr/share/dh-rust/bin/cargo-auto-test wit-parser 0.239.0
- --all-targets --no-default-features --features wat
-Features:
- test-name=rust-wit-parser:wat,
-Depends:
- dh-rust,
- librust-libtest-mimic-dev,
  librust-wit-parser-0.239+wat-dev,
 Restrictions:
  allow-stderr,
