@@ -1,3 +1,9 @@
+wasm-tools (1.239.0+ds-5) unstable; urgency=medium
+
+  * really fix autopkgtests for wit-parser
+
+ -- Jonas Smedegaard <dr@jones.dk>  Thu, 09 Apr 2026 10:27:23 +0200
+
 wasm-tools (1.239.0+ds-4) unstable; urgency=medium
 
   * simplify version mangling of virtual packages
