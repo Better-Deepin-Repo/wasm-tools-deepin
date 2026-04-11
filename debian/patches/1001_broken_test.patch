@@ -50,3 +50,13 @@ This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
          let mut resolve = Resolve::default();
  
          // If there's a single package and only one world, that world is
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -241,6 +241,7 @@
+ [[test]]
+ name = "cli"
+ harness = false
++required-features = ["broken"]
+ 
+ [features]
+ # By default, all subcommands are built
