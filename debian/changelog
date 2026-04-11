@@ -1,3 +1,12 @@
+wasm-tools (1.239.0+ds-6) unstable; urgency=medium
+
+  * extend patch 1002_rand to cover crate wasm-smith
+  * extend patch 1001_broken_test
+  * update DEP-3 patch headers
+  * autopkgtest-check single-feature tests only on amd64
+
+ -- Jonas Smedegaard <dr@jones.dk>  Sat, 11 Apr 2026 09:05:10 +0200
+
 wasm-tools (1.239.0+ds-5) unstable; urgency=medium
 
   * really fix autopkgtests for wit-parser
