@@ -1,5 +1,6 @@
 Description: use older major version of crate bytesize
 Author: Jonas Smedegaard <dr@jones.dk>
+Bug-Debian: https://bugs.debian.org/1111400
 Forwarded: not-needed
 Last-Update: 2026-04-04
 ---

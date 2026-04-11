@@ -1,7 +1,8 @@
 Description: accept older minor version of crate libtest-mimic
 Author: Jonas Smedegaard <dr@jones.dk>
+Bug-Debian: https://bugs.debian.org/1127572
 Forwarded: not-needed
-Last-Update: 2026-04-04
+Last-Update: 2026-04-11
 ---
 This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
 --- a/Cargo.toml
