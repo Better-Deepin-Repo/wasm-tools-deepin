@@ -194,7 +194,51 @@ This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
 @@ -1,5 +1,5 @@
  use arbitrary::{Arbitrary, Unstructured};
 -use rand::{RngCore, SeedableRng, rngs::SmallRng};
-+use rand::{Rng, RngCore, SeedableRng, rngs::SmallRng};
++use rand::{Rng, SeedableRng, rngs::SmallRng};
  use wasm_smith::{Config, Module};
  use wasmparser::{Validator, WasmFeatures};
+ 
+--- a/crates/wasm-smith/tests/available_imports.rs
++++ b/crates/wasm-smith/tests/available_imports.rs
+@@ -1,7 +1,7 @@
+ #![cfg(feature = "wasmparser")]
+ 
+ use arbitrary::Unstructured;
+-use rand::{RngCore, SeedableRng, rngs::SmallRng};
++use rand::{Rng, SeedableRng, rngs::SmallRng};
+ use std::collections::HashMap;
+ use wasm_smith::{Config, Module};
+ use wasmparser::Validator;
+--- a/crates/wasm-smith/tests/component.rs
++++ b/crates/wasm-smith/tests/component.rs
+@@ -1,7 +1,7 @@
+ #![cfg(feature = "component-model")]
+ 
+ use arbitrary::{Arbitrary, Unstructured};
+-use rand::{RngCore, SeedableRng, rngs::SmallRng};
++use rand::{Rng, SeedableRng, rngs::SmallRng};
+ use wasm_smith::Component;
+ 
+ #[test]
+--- a/crates/wasm-smith/tests/exports.rs
++++ b/crates/wasm-smith/tests/exports.rs
+@@ -1,7 +1,7 @@
+ #![cfg(feature = "wasmparser")]
+ 
+ use arbitrary::Unstructured;
+-use rand::{RngCore, SeedableRng, rngs::SmallRng};
++use rand::{Rng, SeedableRng, rngs::SmallRng};
+ use wasm_smith::{Config, Module};
+ use wasmparser::{
+     CompositeType, FuncType, GlobalType, MemoryType, Parser, TableType, Validator, WasmFeatures,
+--- a/crates/wasm-smith/tests/module_shape.rs
++++ b/crates/wasm-smith/tests/module_shape.rs
+@@ -1,7 +1,7 @@
+ #![cfg(feature = "wasmparser")]
+ 
+ use arbitrary::Unstructured;
+-use rand::{RngCore, SeedableRng, rngs::SmallRng};
++use rand::{Rng, SeedableRng, rngs::SmallRng};
+ use wasm_smith::{Config, Module};
+ use wasmparser::{Parser, Validator, WasmFeatures, types::EntityType};
  
