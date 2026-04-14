@@ -1,3 +1,9 @@
+wasm-tools (1.239.0+ds-8) unstable; urgency=medium
+
+  * drop patch 2002_bytesize, obsoleted by Debian package changes
+
+ -- Jonas Smedegaard <dr@jones.dk>  Wed, 15 Apr 2026 01:16:57 +0200
+
 wasm-tools (1.239.0+ds-7) unstable; urgency=medium
 
   * autopkgtest-check feature-specific tests only on amd64
