@@ -1,3 +1,9 @@
+wasm-tools (1.239.0+ds-7) unstable; urgency=medium
+
+  * autopkgtest-check feature-specific tests only on amd64
+
+ -- Jonas Smedegaard <dr@jones.dk>  Tue, 14 Apr 2026 17:02:05 +0200
+
 wasm-tools (1.239.0+ds-6) unstable; urgency=medium
 
   * extend patch 1002_rand to cover crate wasm-smith
