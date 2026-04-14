@@ -1,4 +1,4 @@
-# check single-feature tests only on amd64
+# check feature-specific tests only on amd64
 
 Test-Command: /usr/share/dh-rust/bin/cargo-auto-test json-from-wast 0.239.0
  --all-targets --all-features
@@ -29,6 +29,7 @@ Depends:
  librust-json-from-wast-0.239+default-dev,
 Restrictions:
  allow-stderr,
+Architecture: amd64
 
 Test-Command: /usr/share/dh-rust/bin/cargo-auto-test wasm-compose 0.239.0
  --all-targets --all-features
@@ -65,6 +66,7 @@ Depends:
  librust-wasmprinter-dev,
 Restrictions:
  allow-stderr,
+Architecture: amd64
 
 Test-Command: /usr/share/dh-rust/bin/cargo-auto-test wasm-metadata 0.239.0
  --all-targets --all-features
@@ -95,6 +97,7 @@ Depends:
  librust-wasm-metadata-0.239+default-dev,
 Restrictions:
  allow-stderr,
+Architecture: amd64
 
 Test-Command: /usr/share/dh-rust/bin/cargo-auto-test wasm-metadata 0.239.0
  --all-targets --no-default-features --features oci
@@ -105,6 +108,7 @@ Depends:
  librust-wasm-metadata-0.239+oci-dev,
 Restrictions:
  allow-stderr,
+Architecture: amd64
 
 Test-Command: /usr/share/dh-rust/bin/cargo-auto-test wasm-metadata 0.239.0
  --all-targets --no-default-features --features serde
@@ -115,6 +119,7 @@ Depends:
  librust-wasm-metadata-0.239+serde-dev,
 Restrictions:
  allow-stderr,
+Architecture: amd64
 
 Test-Command: /usr/share/dh-rust/bin/cargo-auto-test wasm-mutate 0.239.0
  --all-targets --all-features
@@ -148,6 +153,7 @@ Depends:
  librust-wasmprinter-dev,
 Restrictions:
  allow-stderr,
+Architecture: amd64
 
 Test-Command: /usr/share/dh-rust/bin/cargo-auto-test wasm-shrink 0.239.0
  --all-targets --all-features
@@ -181,6 +187,7 @@ Depends:
  librust-wasmprinter-dev,
 Restrictions:
  allow-stderr,
+Architecture: amd64
 
 Test-Command: /usr/share/dh-rust/bin/cargo-auto-test wasm-smith 0.239.0
  --all-targets --all-features
@@ -214,6 +221,7 @@ Depends:
  librust-wasmprinter-dev,
 Restrictions:
  allow-stderr,
+Architecture: amd64
 
 Test-Command: /usr/share/dh-rust/bin/cargo-auto-test wasm-smith 0.239.0
  --all-targets --no-default-features --features component-model
@@ -283,6 +291,7 @@ Depends:
  librust-wasm-tools-1+default-dev,
 Restrictions:
  allow-stderr,
+Architecture: amd64
 
 Test-Command: /usr/share/dh-rust/bin/cargo-auto-test wasm-tools 1.239.0
  --all-targets --no-default-features --features addr2line
@@ -529,6 +538,7 @@ Depends:
  librust-wasm-wave-0.239+default-dev,
 Restrictions:
  allow-stderr,
+Architecture: amd64
 
 Test-Command: /usr/share/dh-rust/bin/cargo-auto-test wasm-wave 0.239.0
  --all-targets --no-default-features --features wit
@@ -579,6 +589,7 @@ Depends:
  librust-wit-component-0.239+default-dev,
 Restrictions:
  allow-stderr,
+Architecture: amd64
 
 Test-Command: /usr/share/dh-rust/bin/cargo-auto-test wit-component 0.239.0
  --all-targets --no-default-features --features dummy-module
@@ -654,6 +665,7 @@ Depends:
  librust-wit-encoder-0.239+default-dev,
 Restrictions:
  allow-stderr,
+Architecture: amd64
 
 Test-Command: /usr/share/dh-rust/bin/cargo-auto-test wit-encoder 0.239.0
  --all-targets --no-default-features --features from-parser
@@ -772,3 +784,4 @@ Depends:
  librust-wit-smith-0.239+default-dev,
 Restrictions:
  allow-stderr,
+Architecture: amd64
