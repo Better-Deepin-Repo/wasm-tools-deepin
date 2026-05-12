@@ -7,7 +7,7 @@ This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
 --- a/Cargo.toml
 +++ b/Cargo.toml
 @@ -135,7 +135,6 @@
- spdx = ">= 0.10.1, <= 0.12"
+ spdx = ">= 0.10.1, <= 0.13"
  termcolor = "1.2.0"
  url = "2.0.0"
 -wasmtime = { version = "34.0.1", default-features = false, features = ['cranelift', 'component-model', 'runtime', 'gc-drc'] }
