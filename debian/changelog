@@ -1,3 +1,11 @@
+wasm-tools (1.239.0+ds-9) unstable; urgency=medium
+
+  * update patch 1002_spdx
+    to cover newer minor version of crate spdx;
+    closes: bug#1136362, thanks to Antonin Delpeuch
+
+ -- Jonas Smedegaard <dr@jones.dk>  Tue, 12 May 2026 20:52:06 +0200
+
 wasm-tools (1.239.0+ds-8) unstable; urgency=medium
 
   * drop patch 2002_bytesize, obsoleted by Debian package changes
