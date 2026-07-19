@@ -1,7 +1,9 @@
 1001_broken_test.patch
 1001_fence_test.patch
+1002_addr2line.patch
 1002_auditable-serde.patch
 1002_egg.patch
+1002_gimli.patch
 1002_hashbrown.patch
 1002_heck.patch
 1002_logos.patch

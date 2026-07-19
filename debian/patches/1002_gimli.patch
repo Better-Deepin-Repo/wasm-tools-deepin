@@ -1,0 +1,28 @@
+Description: use newer minor version of crate gimli
+Author: Greg Lamberson <greg@lamco.io>
+Author: Jonas Smedegaard <dr@jones.dk>
+Bug-Debian: https://bugs.debian.org/1140668
+Last-Update: 2026-07-19
+---
+This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -119,7 +119,7 @@
+ comfy-table = { version = "7.1.3", default-features = false }
+ criterion = { version = "0.5.1", default-features = false }
+ env_logger = "0.11"
+-gimli = "0.31.1"
++gimli = "0.32.3"
+ hashbrown = { version = "0.15.2", default-features = false, features = ['default-hasher'] }
+ id-arena = "2"
+ indexmap = { version = "2.7.0", default-features = false }
+--- a/crates/wast/src/core/binary/dwarf.rs
++++ b/crates/wast/src/core/binary/dwarf.rs
+@@ -96,6 +96,7 @@
+             encoding,
+             LineEncoding::default(),
+             LineString::StringRef(comp_dir_ref),
++            None,
+             LineString::StringRef(comp_file_ref),
+             None,
+         );
