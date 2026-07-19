@@ -101,6 +101,7 @@ License: GPL-3+
 Files:
  debian/patches/*
 Copyright:
+  Greg Lamberson <greg@lamco.io>
   Jonas Smedegaard <dr@jones.dk>
 License: Apache-2.0 or Apache-2.0 with LLVM exception or Expat
  As an exception,
