@@ -1,3 +1,18 @@
+wasm-tools (1.239.0+ds-10) unstable; urgency=medium
+
+  * update watch file: use Custom-Version
+  * add patch 1002_addr2line
+    to accept newer minor version of crate addr2line;
+    add patch 1002_gimli to use newer minor version of crate gimli;
+    closes: bug#1140668, thanks to Greg Lamberson
+  * update copyright info: update coverage
+  * add patch 1002_newer_cpp_demangle
+    to use newer minor version of crate cpp_demangle
+  * use debhelper compatibility level 14 (not 13)
+  * tighten (build-, autopkgtest-)dependencies
+
+ -- Jonas Smedegaard <dr@jones.dk>  Wed, 05 Aug 2026 08:36:17 +0200
+
 wasm-tools (1.239.0+ds-9) unstable; urgency=medium
 
   * update patch 1002_spdx
