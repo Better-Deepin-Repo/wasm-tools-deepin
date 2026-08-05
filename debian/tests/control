@@ -37,9 +37,9 @@ Features:
  test-name=rust-wasm-compose:@,
 Depends:
  dh-rust,
- librust-glob-dev,
+ librust-glob-0.3-dev,
  librust-wasm-compose-dev,
- librust-wasmprinter-dev,
+ librust-wasmprinter-0.239-dev,
 Restrictions:
  allow-stderr,
 
@@ -49,9 +49,9 @@ Features:
  test-name=rust-wasm-compose:,
 Depends:
  dh-rust,
- librust-glob-dev,
+ librust-glob-0.3-dev,
  librust-wasm-compose-dev,
- librust-wasmprinter-dev,
+ librust-wasmprinter-0.239-dev,
 Restrictions:
  allow-stderr,
 
@@ -61,9 +61,9 @@ Features:
  test-name=rust-wasm-compose:default,
 Depends:
  dh-rust,
- librust-glob-dev,
- librust-wasm-compose-0.239+default-dev,
- librust-wasmprinter-dev,
+ librust-glob-0.3-dev,
+ librust-wasm-compose-dev,
+ librust-wasmprinter-0.239-dev,
 Restrictions:
  allow-stderr,
 Architecture: amd64
@@ -94,7 +94,7 @@ Features:
  test-name=rust-wasm-metadata:default,
 Depends:
  dh-rust,
- librust-wasm-metadata-0.239+default-dev,
+ librust-wasm-metadata-dev,
 Restrictions:
  allow-stderr,
 Architecture: amd64
@@ -105,7 +105,7 @@ Features:
  test-name=rust-wasm-metadata:oci,
 Depends:
  dh-rust,
- librust-wasm-metadata-0.239+oci-dev,
+ librust-wasm-metadata-dev,
 Restrictions:
  allow-stderr,
 Architecture: amd64
@@ -116,7 +116,7 @@ Features:
  test-name=rust-wasm-metadata:serde,
 Depends:
  dh-rust,
- librust-wasm-metadata-0.239+serde-dev,
+ librust-wasm-metadata-dev,
 Restrictions:
  allow-stderr,
 Architecture: amd64
@@ -128,7 +128,7 @@ Features:
 Depends:
  dh-rust,
  librust-wasm-mutate-dev,
- librust-wasmprinter-dev,
+ librust-wasmprinter-0.239-dev,
 Restrictions:
  allow-stderr,
 
@@ -139,7 +139,7 @@ Features:
 Depends:
  dh-rust,
  librust-wasm-mutate-dev,
- librust-wasmprinter-dev,
+ librust-wasmprinter-0.239-dev,
 Restrictions:
  allow-stderr,
 
@@ -149,8 +149,8 @@ Features:
  test-name=rust-wasm-mutate:default,
 Depends:
  dh-rust,
- librust-wasm-mutate-0.239+default-dev,
- librust-wasmprinter-dev,
+ librust-wasm-mutate-dev,
+ librust-wasmprinter-0.239-dev,
 Restrictions:
  allow-stderr,
 Architecture: amd64
@@ -162,7 +162,7 @@ Features:
 Depends:
  dh-rust,
  librust-wasm-shrink-dev,
- librust-wasmprinter-dev,
+ librust-wasmprinter-0.239-dev,
 Restrictions:
  allow-stderr,
 
@@ -173,7 +173,7 @@ Features:
 Depends:
  dh-rust,
  librust-wasm-shrink-dev,
- librust-wasmprinter-dev,
+ librust-wasmprinter-0.239-dev,
 Restrictions:
  allow-stderr,
 
@@ -183,8 +183,8 @@ Features:
  test-name=rust-wasm-shrink:default,
 Depends:
  dh-rust,
- librust-wasm-shrink-0.239+default-dev,
- librust-wasmprinter-dev,
+ librust-wasm-shrink-dev,
+ librust-wasmprinter-0.239-dev,
 Restrictions:
  allow-stderr,
 Architecture: amd64
@@ -196,7 +196,7 @@ Features:
 Depends:
  dh-rust,
  librust-wasm-smith-dev,
- librust-wasmprinter-dev,
+ librust-wasmprinter-0.239-dev,
 Restrictions:
  allow-stderr,
 
@@ -207,7 +207,7 @@ Features:
 Depends:
  dh-rust,
  librust-wasm-smith-dev,
- librust-wasmprinter-dev,
+ librust-wasmprinter-0.239-dev,
 Restrictions:
  allow-stderr,
 
@@ -217,8 +217,8 @@ Features:
  test-name=rust-wasm-smith:default,
 Depends:
  dh-rust,
- librust-wasm-smith-0.239+default-dev,
- librust-wasmprinter-dev,
+ librust-wasm-smith-dev,
+ librust-wasmprinter-0.239-dev,
 Restrictions:
  allow-stderr,
 Architecture: amd64
@@ -229,8 +229,8 @@ Features:
  test-name=rust-wasm-smith:component-model,
 Depends:
  dh-rust,
- librust-wasm-smith-0.239+component-model-dev,
- librust-wasmprinter-dev,
+ librust-wasm-smith-dev,
+ librust-wasmprinter-0.239-dev,
 Restrictions:
  allow-stderr,
 Architecture: amd64
@@ -241,8 +241,8 @@ Features:
  test-name=rust-wasm-smith:serde,
 Depends:
  dh-rust,
- librust-wasm-smith-0.239+serde-dev,
- librust-wasmprinter-dev,
+ librust-wasm-smith-dev,
+ librust-wasmprinter-0.239-dev,
 Restrictions:
  allow-stderr,
 Architecture: amd64
@@ -253,8 +253,8 @@ Features:
  test-name=rust-wasm-smith:wasmparser,
 Depends:
  dh-rust,
- librust-wasm-smith-0.239+wasmparser-dev,
- librust-wasmprinter-dev,
+ librust-wasm-smith-dev,
+ librust-wasmprinter-0.239-dev,
 Restrictions:
  allow-stderr,
 Architecture: amd64
@@ -265,7 +265,7 @@ Features:
  test-name=rust-wasm-tools:@,
 Depends:
  dh-rust,
- librust-libtest-mimic-dev,
+ librust-libtest-mimic-dev (<< 0.9),
  librust-wasm-tools-dev,
 Restrictions:
  allow-stderr,
@@ -276,7 +276,7 @@ Features:
  test-name=rust-wasm-tools:,
 Depends:
  dh-rust,
- librust-libtest-mimic-dev,
+ librust-libtest-mimic-dev (<< 0.9),
  librust-wasm-tools-dev,
 Restrictions:
  allow-stderr,
@@ -287,8 +287,8 @@ Features:
  test-name=rust-wasm-tools:default,
 Depends:
  dh-rust,
- librust-libtest-mimic-dev,
- librust-wasm-tools-1+default-dev,
+ librust-libtest-mimic-dev (<< 0.9),
+ librust-wasm-tools-dev,
 Restrictions:
  allow-stderr,
 Architecture: amd64
@@ -299,8 +299,8 @@ Features:
  test-name=rust-wasm-tools:addr2line,
 Depends:
  dh-rust,
- librust-libtest-mimic-dev,
- librust-wasm-tools-1+addr2line-dev,
+ librust-libtest-mimic-dev (<< 0.9),
+ librust-wasm-tools-dev,
 Restrictions:
  allow-stderr,
 Architecture: amd64
@@ -311,8 +311,8 @@ Features:
  test-name=rust-wasm-tools:completion,
 Depends:
  dh-rust,
- librust-libtest-mimic-dev,
- librust-wasm-tools-1+completion-dev,
+ librust-libtest-mimic-dev (<< 0.9),
+ librust-wasm-tools-dev,
 Restrictions:
  allow-stderr,
 Architecture: amd64
@@ -323,8 +323,8 @@ Features:
  test-name=rust-wasm-tools:component,
 Depends:
  dh-rust,
- librust-libtest-mimic-dev,
- librust-wasm-tools-1+component-dev,
+ librust-libtest-mimic-dev (<< 0.9),
+ librust-wasm-tools-dev,
 Restrictions:
  allow-stderr,
 Architecture: amd64
@@ -335,8 +335,8 @@ Features:
  test-name=rust-wasm-tools:compose,
 Depends:
  dh-rust,
- librust-libtest-mimic-dev,
- librust-wasm-tools-1+compose-dev,
+ librust-libtest-mimic-dev (<< 0.9),
+ librust-wasm-tools-dev,
 Restrictions:
  allow-stderr,
 Architecture: amd64
@@ -347,8 +347,8 @@ Features:
  test-name=rust-wasm-tools:demangle,
 Depends:
  dh-rust,
- librust-libtest-mimic-dev,
- librust-wasm-tools-1+demangle-dev,
+ librust-libtest-mimic-dev (<< 0.9),
+ librust-wasm-tools-dev,
 Restrictions:
  allow-stderr,
 Architecture: amd64
@@ -359,8 +359,8 @@ Features:
  test-name=rust-wasm-tools:dump,
 Depends:
  dh-rust,
- librust-libtest-mimic-dev,
- librust-wasm-tools-1+dump-dev,
+ librust-libtest-mimic-dev (<< 0.9),
+ librust-wasm-tools-dev,
 Restrictions:
  allow-stderr,
 Architecture: amd64
@@ -371,8 +371,8 @@ Features:
  test-name=rust-wasm-tools:json-from-wast,
 Depends:
  dh-rust,
- librust-libtest-mimic-dev,
- librust-wasm-tools-1+json-from-wast-dev,
+ librust-libtest-mimic-dev (<< 0.9),
+ librust-wasm-tools-dev,
 Restrictions:
  allow-stderr,
 Architecture: amd64
@@ -383,8 +383,8 @@ Features:
  test-name=rust-wasm-tools:metadata,
 Depends:
  dh-rust,
- librust-libtest-mimic-dev,
- librust-wasm-tools-1+metadata-dev,
+ librust-libtest-mimic-dev (<< 0.9),
+ librust-wasm-tools-dev,
 Restrictions:
  allow-stderr,
 Architecture: amd64
@@ -395,8 +395,8 @@ Features:
  test-name=rust-wasm-tools:mutate,
 Depends:
  dh-rust,
- librust-libtest-mimic-dev,
- librust-wasm-tools-1+mutate-dev,
+ librust-libtest-mimic-dev (<< 0.9),
+ librust-wasm-tools-dev,
 Restrictions:
  allow-stderr,
 Architecture: amd64
@@ -407,8 +407,8 @@ Features:
  test-name=rust-wasm-tools:objdump,
 Depends:
  dh-rust,
- librust-libtest-mimic-dev,
- librust-wasm-tools-1+objdump-dev,
+ librust-libtest-mimic-dev (<< 0.9),
+ librust-wasm-tools-dev,
 Restrictions:
  allow-stderr,
 Architecture: amd64
@@ -419,8 +419,8 @@ Features:
  test-name=rust-wasm-tools:parse,
 Depends:
  dh-rust,
- librust-libtest-mimic-dev,
- librust-wasm-tools-1+parse-dev,
+ librust-libtest-mimic-dev (<< 0.9),
+ librust-wasm-tools-dev,
 Restrictions:
  allow-stderr,
 Architecture: amd64
@@ -431,8 +431,8 @@ Features:
  test-name=rust-wasm-tools:print,
 Depends:
  dh-rust,
- librust-libtest-mimic-dev,
- librust-wasm-tools-1+print-dev,
+ librust-libtest-mimic-dev (<< 0.9),
+ librust-wasm-tools-dev,
 Restrictions:
  allow-stderr,
 Architecture: amd64
@@ -443,8 +443,8 @@ Features:
  test-name=rust-wasm-tools:shrink,
 Depends:
  dh-rust,
- librust-libtest-mimic-dev,
- librust-wasm-tools-1+shrink-dev,
+ librust-libtest-mimic-dev (<< 0.9),
+ librust-wasm-tools-dev,
 Restrictions:
  allow-stderr,
 Architecture: amd64
@@ -455,8 +455,8 @@ Features:
  test-name=rust-wasm-tools:smith,
 Depends:
  dh-rust,
- librust-libtest-mimic-dev,
- librust-wasm-tools-1+smith-dev,
+ librust-libtest-mimic-dev (<< 0.9),
+ librust-wasm-tools-dev,
 Restrictions:
  allow-stderr,
 Architecture: amd64
@@ -467,8 +467,8 @@ Features:
  test-name=rust-wasm-tools:strip,
 Depends:
  dh-rust,
- librust-libtest-mimic-dev,
- librust-wasm-tools-1+strip-dev,
+ librust-libtest-mimic-dev (<< 0.9),
+ librust-wasm-tools-dev,
 Restrictions:
  allow-stderr,
 Architecture: amd64
@@ -479,8 +479,8 @@ Features:
  test-name=rust-wasm-tools:validate,
 Depends:
  dh-rust,
- librust-libtest-mimic-dev,
- librust-wasm-tools-1+validate-dev,
+ librust-libtest-mimic-dev (<< 0.9),
+ librust-wasm-tools-dev,
 Restrictions:
  allow-stderr,
 Architecture: amd64
@@ -491,8 +491,8 @@ Features:
  test-name=rust-wasm-tools:wast,
 Depends:
  dh-rust,
- librust-libtest-mimic-dev,
- librust-wasm-tools-1+wast-dev,
+ librust-libtest-mimic-dev (<< 0.9),
+ librust-wasm-tools-dev,
 Restrictions:
  allow-stderr,
 Architecture: amd64
@@ -503,8 +503,8 @@ Features:
  test-name=rust-wasm-tools:wit-smith,
 Depends:
  dh-rust,
- librust-libtest-mimic-dev,
- librust-wasm-tools-1+wit-smith-dev,
+ librust-libtest-mimic-dev (<< 0.9),
+ librust-wasm-tools-dev,
 Restrictions:
  allow-stderr,
 Architecture: amd64
@@ -535,7 +535,7 @@ Features:
  test-name=rust-wasm-wave:default,
 Depends:
  dh-rust,
- librust-wasm-wave-0.239+default-dev,
+ librust-wasm-wave-dev,
 Restrictions:
  allow-stderr,
 Architecture: amd64
@@ -557,9 +557,9 @@ Features:
  test-name=rust-wit-component:@,
 Depends:
  dh-rust,
- librust-glob-dev,
- librust-libtest-mimic-dev,
- librust-wasmprinter-dev,
+ librust-glob-0.3-dev,
+ librust-libtest-mimic-dev (<< 0.9),
+ librust-wasmprinter-0.239-dev,
  librust-wit-component-dev,
 Restrictions:
  allow-stderr,
@@ -570,9 +570,9 @@ Features:
  test-name=rust-wit-component:,
 Depends:
  dh-rust,
- librust-glob-dev,
- librust-libtest-mimic-dev,
- librust-wasmprinter-dev,
+ librust-glob-0.3-dev,
+ librust-libtest-mimic-dev (<< 0.9),
+ librust-wasmprinter-0.239-dev,
  librust-wit-component-dev,
 Restrictions:
  allow-stderr,
@@ -583,10 +583,10 @@ Features:
  test-name=rust-wit-component:default,
 Depends:
  dh-rust,
- librust-glob-dev,
- librust-libtest-mimic-dev,
- librust-wasmprinter-dev,
- librust-wit-component-0.239+default-dev,
+ librust-glob-0.3-dev,
+ librust-libtest-mimic-dev (<< 0.9),
+ librust-wasmprinter-0.239-dev,
+ librust-wit-component-dev,
 Restrictions:
  allow-stderr,
 Architecture: amd64
@@ -597,10 +597,10 @@ Features:
  test-name=rust-wit-component:dummy-module,
 Depends:
  dh-rust,
- librust-glob-dev,
- librust-libtest-mimic-dev,
- librust-wasmprinter-dev,
- librust-wit-component-0.239+dummy-module-dev,
+ librust-glob-0.3-dev,
+ librust-libtest-mimic-dev (<< 0.9),
+ librust-wasmprinter-0.239-dev,
+ librust-wit-component-dev,
 Restrictions:
  allow-stderr,
 Architecture: amd64
@@ -611,10 +611,10 @@ Features:
  test-name=rust-wit-component:semver-check,
 Depends:
  dh-rust,
- librust-glob-dev,
- librust-libtest-mimic-dev,
- librust-wasmprinter-dev,
- librust-wit-component-0.239+semver-check-dev,
+ librust-glob-0.3-dev,
+ librust-libtest-mimic-dev (<< 0.9),
+ librust-wasmprinter-0.239-dev,
+ librust-wit-component-dev,
 Restrictions:
  allow-stderr,
 Architecture: amd64
@@ -625,10 +625,10 @@ Features:
  test-name=rust-wit-component:wat,
 Depends:
  dh-rust,
- librust-glob-dev,
- librust-libtest-mimic-dev,
- librust-wasmprinter-dev,
- librust-wit-component-0.239+wat-dev,
+ librust-glob-0.3-dev,
+ librust-libtest-mimic-dev (<< 0.9),
+ librust-wasmprinter-0.239-dev,
+ librust-wit-component-dev,
 Restrictions:
  allow-stderr,
 Architecture: amd64
@@ -662,7 +662,7 @@ Features:
 Depends:
  dh-rust,
  librust-indoc-dev,
- librust-wit-encoder-0.239+default-dev,
+ librust-wit-encoder-dev,
 Restrictions:
  allow-stderr,
 Architecture: amd64
@@ -674,7 +674,7 @@ Features:
 Depends:
  dh-rust,
  librust-indoc-dev,
- librust-wit-encoder-0.239+from-parser-dev,
+ librust-wit-encoder-dev,
 Restrictions:
  allow-stderr,
 Architecture: amd64
@@ -686,7 +686,7 @@ Features:
 Depends:
  dh-rust,
  librust-indoc-dev,
- librust-wit-encoder-0.239+serde-dev,
+ librust-wit-encoder-dev,
 Restrictions:
  allow-stderr,
 Architecture: amd64
@@ -697,7 +697,7 @@ Features:
  test-name=rust-wit-parser:@,
 Depends:
  dh-rust,
- librust-libtest-mimic-dev,
+ librust-libtest-mimic-dev (<< 0.9),
  librust-wit-parser-dev,
 Restrictions:
  allow-stderr,
@@ -709,7 +709,7 @@ Restrictions:
 # test-name=rust-wit-parser:,
 #Depends:
 # dh-rust,
-# librust-libtest-mimic-dev,
+# librust-libtest-mimic-dev (<< 0.9),
 # librust-wit-parser-dev,
 #Restrictions:
 # allow-stderr,
@@ -721,8 +721,8 @@ Restrictions:
 # test-name=rust-wit-parser:default,
 #Depends:
 # dh-rust,
-# librust-libtest-mimic-dev,
-# librust-wit-parser-0.239+default-dev,
+# librust-libtest-mimic-dev (<< 0.9),
+# librust-wit-parser-dev,
 #Restrictions:
 # allow-stderr,
 
@@ -733,10 +733,8 @@ Features:
  test-name=rust-wit-parser:decoding+serde+wat,
 Depends:
  dh-rust,
- librust-libtest-mimic-dev,
- librust-wit-parser-0.239+decoding-dev,
- librust-wit-parser-0.239+serde-dev,
- librust-wit-parser-0.239+wat-dev,
+ librust-libtest-mimic-dev (<< 0.9),
+ librust-wit-parser-dev,
 Restrictions:
  allow-stderr,
 Architecture: amd64
@@ -748,9 +746,8 @@ Features:
  test-name=rust-wit-parser:serde+wat,
 Depends:
  dh-rust,
- librust-libtest-mimic-dev,
- librust-wit-parser-0.239+serde-dev,
- librust-wit-parser-0.239+wat-dev,
+ librust-libtest-mimic-dev (<< 0.9),
+ librust-wit-parser-dev,
 Restrictions:
  allow-stderr,
 Architecture: amd64
@@ -781,7 +778,7 @@ Features:
  test-name=rust-wit-smith:default,
 Depends:
  dh-rust,
- librust-wit-smith-0.239+default-dev,
+ librust-wit-smith-dev,
 Restrictions:
  allow-stderr,
 Architecture: amd64
