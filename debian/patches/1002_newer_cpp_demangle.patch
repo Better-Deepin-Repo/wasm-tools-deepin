@@ -1,0 +1,27 @@
+Description: use newer minor version of crate cpp_demangle
+Author: Jonas Smedegaard <dr@jones.dk>
+Last-Update: 2026-08-05
+---
+This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -199,7 +199,7 @@
+ wasm-compose = { workspace = true, optional = true }
+ 
+ # Dependencies of `demangle`
+-cpp_demangle = { version = "0.4.0", optional = true }
++cpp_demangle = { version = "0.5.1", optional = true }
+ rustc-demangle = { version = "0.1.21", optional = true }
+ 
+ # Dependencies of `component`
+--- a/src/bin/wasm-tools/demangle.rs
++++ b/src/bin/wasm-tools/demangle.rs
+@@ -87,7 +87,7 @@
+             let name = match rustc_demangle::try_demangle(naming.name) {
+                 Ok(name) => name.to_string(),
+                 Err(_) => match cpp_demangle::Symbol::new(naming.name) {
+-                    Ok(name) => name.to_string(),
++                    Ok(name) => name.demangle().unwrap_or_else(|_| naming.name.to_string()),
+                     Err(_) => naming.name.to_string(),
+                 },
+             };

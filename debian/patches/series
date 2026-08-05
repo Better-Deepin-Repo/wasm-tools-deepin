@@ -2,6 +2,7 @@
 1001_fence_test.patch
 1002_newer_addr2line.patch
 1002_newer_auditable-serde.patch
+1002_newer_cpp_demangle.patch
 1002_newer_egg.patch
 1002_newer_gimli.patch
 1002_newer_hashbrown.patch
