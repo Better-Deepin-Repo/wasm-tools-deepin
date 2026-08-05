@@ -1,7 +1,7 @@
 Source: wasm-tools
 Section: rust
 Build-Depends:
- debhelper-compat (= 13),
+ debhelper-compat (= 14),
  dh-sequence-bash-completion,
  dh-sequence-rust,
  cmark-gfm <!nodoc>,
@@ -113,7 +113,6 @@ Depends:
  librust-wasmprinter-dev,
  librust-wast-dev,
  librust-wat-dev,
- ${misc:Depends},
 Provides:
  librust-json-from-wast-0.239+default-dev (= ${rust:Version:zero-based}),
  librust-json-from-wast-0.239-dev (= ${rust:Version:zero-based}),
@@ -209,7 +208,6 @@ Architecture: any
 Multi-Arch: allowed
 Depends:
  ${cargo:Depends},
- ${misc:Depends},
  ${shlibs:Depends},
 Suggests:
  bash-completion,
