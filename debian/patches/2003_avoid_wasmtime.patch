@@ -6,8 +6,8 @@ Last-Update: 2026-04-04
 This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
 --- a/Cargo.toml
 +++ b/Cargo.toml
-@@ -135,7 +135,6 @@
- spdx = ">= 0.10.1, <= 0.13"
+@@ -135,7 +135,6 @@ smallvec = "1.11.1"
+ spdx = "0.10.1"
  termcolor = "1.2.0"
  url = "2.0.0"
 -wasmtime = { version = "34.0.1", default-features = false, features = ['cranelift', 'component-model', 'runtime', 'gc-drc'] }
@@ -16,7 +16,7 @@ This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
  wasm-compose = { version = "0.239.0", path = "crates/wasm-compose" }
 --- a/crates/fuzz-stats/Cargo.toml
 +++ b/crates/fuzz-stats/Cargo.toml
-@@ -10,7 +10,6 @@
+@@ -10,7 +10,6 @@ arbitrary = { workspace = true }
  num_cpus = { workspace = true }
  rand = { workspace = true }
  wasm-smith = { workspace = true }
@@ -26,7 +26,7 @@ This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
  workspace = true
 --- a/crates/wasm-mutate-stats/Cargo.toml
 +++ b/crates/wasm-mutate-stats/Cargo.toml
-@@ -19,7 +19,6 @@
+@@ -19,7 +19,6 @@ rand = { workspace = true }
  wasm-mutate = { workspace = true }
  wasmparser = { workspace = true, features = ['std', 'validate'] }
  wasmprinter = { workspace = true }
@@ -36,7 +36,7 @@ This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
  doctest = false
 --- a/crates/wit-component/Cargo.toml
 +++ b/crates/wit-component/Cargo.toml
-@@ -44,9 +44,6 @@
+@@ -44,9 +44,6 @@ wasmprinter = { workspace = true, features = ['component-model'] }
  wat = { workspace = true, features = ['component-model'] }
  wasm-metadata = { workspace = true, features = ['oci'] }
  
@@ -48,7 +48,7 @@ This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
  wat = ['dep:wast', 'dep:wat']
 --- a/crates/wit-component/tests/linking.rs
 +++ b/crates/wit-component/tests/linking.rs
-@@ -181,7 +181,7 @@
+@@ -181,7 +181,7 @@ fn linking() -> Result<()> {
          _ = component;
      }
  
@@ -59,7 +59,7 @@ This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
              anyhow::anyhow,
 --- a/fuzz/Cargo.toml
 +++ b/fuzz/Cargo.toml
-@@ -21,7 +21,6 @@
+@@ -21,7 +21,6 @@ wasm-mutate = { workspace = true }
  wasm-smith = { workspace = true, features = ['component-model', 'wasmparser'] }
  wasmparser = { workspace = true, features = ['std', 'features'] }
  wasmprinter = { workspace = true, features = ['component-model'] }

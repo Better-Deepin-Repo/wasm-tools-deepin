@@ -6,7 +6,7 @@ Last-Update: 2026-04-04
 This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
 --- a/Cargo.toml
 +++ b/Cargo.toml
-@@ -34,11 +34,9 @@
+@@ -34,11 +34,9 @@ workspace = true
  [workspace]
  members = [
    'crates/c-api',

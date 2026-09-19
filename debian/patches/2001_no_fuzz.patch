@@ -1,12 +1,12 @@
 Description: avoid fuzzing
 Author: Jonas Smedegaard <dr@jones.dk>
 Forwarded: not-needed
-Last-Update: 2026-04-04
+Last-Update: 2026-09-24
 ---
 This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
 --- a/Cargo.toml
 +++ b/Cargo.toml
-@@ -34,12 +34,9 @@
+@@ -34,12 +34,9 @@ workspace = true
  [workspace]
  members = [
    'crates/c-api',
@@ -19,7 +19,7 @@ This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
    'crates/wit-component/dl',
    'playground/component',
  ]
-@@ -124,7 +121,6 @@
+@@ -124,7 +121,6 @@ id-arena = "2"
  indexmap = { version = "2.7.0", default-features = false }
  indoc = "2.0.5"
  leb128fmt = { version = "0.1.0", default-features = false }
@@ -29,7 +29,7 @@ This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
  num_cpus = "1.13"
 --- a/crates/wasm-smith/Cargo.toml
 +++ b/crates/wasm-smith/Cargo.toml
-@@ -36,9 +36,6 @@
+@@ -36,9 +36,6 @@ wasmparser = { workspace = true, features = ['std', 'validate', 'features', 'sim
  wasmprinter = { workspace = true }
  wat = { workspace = true }
  
@@ -39,3 +39,14 @@ This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
  [features]
  _internal_cli = ["clap", "serde", "dep:wasmparser", "dep:wat"]
  wasmparser = ['dep:wasmparser', 'wasm-encoder/wasmparser']
+--- a/crates/wasm-smith/src/lib.rs
++++ b/crates/wasm-smith/src/lib.rs
+@@ -19,7 +19,7 @@
+ //! `wasm_smith::Module`s as an argument, convert the module into serialized
+ //! Wasm bytes via the `to_bytes` method, and then feed it into your system:
+ //!
+-//! ```no_run
++//! ```ignore
+ //! // fuzz/fuzz_targets/my_wasm_smith_fuzz_target.rs
+ //!
+ //! #![no_main]

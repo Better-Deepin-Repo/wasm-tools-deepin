@@ -6,7 +6,7 @@ Last-Update: 2026-04-04
 This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
 --- a/tests/cli.rs
 +++ b/tests/cli.rs
-@@ -258,6 +258,9 @@
+@@ -258,6 +258,9 @@ fn find_tests(path: &Path, tests: &mut Vec<PathBuf>) {
      for f in path.read_dir().unwrap() {
          let f = f.unwrap();
          if f.file_type().unwrap().is_dir() {

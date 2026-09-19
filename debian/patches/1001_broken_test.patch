@@ -3,9 +3,19 @@ Author: Jonas Smedegaard <dr@jones.dk>
 Last-Update: 2026-04-06
 ---
 This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -241,6 +241,7 @@ wasm-smith = { workspace = true }
+ [[test]]
+ name = "cli"
+ harness = false
++required-features = ["broken"]
+ 
+ [features]
+ # By default, all subcommands are built
 --- a/crates/wit-parser/src/resolve.rs
 +++ b/crates/wit-parser/src/resolve.rs
-@@ -4220,8 +4220,6 @@
+@@ -4220,8 +4220,6 @@ mod tests {
      /// pick a world just based on it being the only one that matches.
      #[test]
      fn select_world_multiple_packages() -> Result<()> {
@@ -14,7 +24,7 @@ This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
          let mut resolve = Resolve::default();
  
          // Just one world in one package; we always succeed.
-@@ -4257,8 +4255,6 @@
+@@ -4257,8 +4255,6 @@ mod tests {
      /// Test selecting a world with multiple versions of a package name.
      #[test]
      fn select_world_versions() -> Result<()> {
@@ -23,7 +33,7 @@ This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
          let mut resolve = Resolve::default();
  
          let _id = resolve.push_str(
-@@ -4348,8 +4344,6 @@
+@@ -4348,8 +4344,6 @@ mod tests {
      /// Test overriding a main package using name qualification
      #[test]
      fn select_world_override_qualification() -> Result<()> {
@@ -32,7 +42,7 @@ This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
          let mut resolve = Resolve::default();
  
          let other = resolve.push_str(
-@@ -4399,8 +4393,6 @@
+@@ -4399,8 +4393,6 @@ mod tests {
      /// Test selecting with fully-qualified world names.
      #[test]
      fn select_world_fully_qualified() -> Result<()> {
@@ -41,7 +51,7 @@ This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
          let mut resolve = Resolve::default();
  
          let distraction = resolve.push_str(
-@@ -4454,8 +4446,6 @@
+@@ -4454,8 +4446,6 @@ mod tests {
      /// Test `select_world` with single and multiple packages.
      #[test]
      fn select_world_packages() -> Result<()> {
@@ -50,13 +60,3 @@ This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
          let mut resolve = Resolve::default();
  
          // If there's a single package and only one world, that world is
---- a/Cargo.toml
-+++ b/Cargo.toml
-@@ -241,6 +241,7 @@
- [[test]]
- name = "cli"
- harness = false
-+required-features = ["broken"]
- 
- [features]
- # By default, all subcommands are built

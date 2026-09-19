@@ -42,7 +42,26 @@ MANPAGES = $(cmd).1
 endif
 
 %:
-	dh $@
+	dh $@ --without=single-binary
+
+# build online against crates.io honoring Cargo.lock,
+# bypassing the debhelper rust buildsystem and its offline Debian registry
+export CARGO_HOME = $(CURDIR)/debian/cargo-home
+
+override_dh_auto_configure:
+
+override_dh_auto_build:
+	cargo build --release --bin $(cmd)
+
+override_dh_auto_test:
+ifneq (,$(filter nocheck,$(DEB_BUILD_OPTIONS)))
+else
+	cargo test --workspace --release
+endif
+
+override_dh_auto_install:
+	mkdir --parents debian/$(mainpkg)/usr/bin
+	install -m 755 target/release/$(cmd) debian/$(mainpkg)/usr/bin/$(cmd)
 
 %.html: %.md
 	cmark-gfm $< > $@
@@ -59,15 +78,11 @@ execute_after_dh_auto_install-arch: debian/$(mainpkg)/usr/bin/$(cmd) $(MANPAGES)
 
 # avoid cleaning unless source is patched
 override_dh_auto_clean:
-	grep -q playground Cargo.toml || dh_auto_clean --buildsystem rust
+	grep -q playground Cargo.toml || cargo clean
+	rm -rf debian/cargo-home
 
 override_dh_installdocs:
 	dh_installdocs -- $(DOCS)
-
-override_dh_gencontrol:
-	dh_gencontrol -plibrust-wasm-tools-dev -- \
-	 -V'rust:Version:zero-based=$(patsubst 1.%,0.%,$(DEB_VERSION))'
-	dh_gencontrol --remaining-packages
 
 # build manpages
 $(cmd).1: %.1: debian/$(mainpkg)/usr/bin/%
